@@ -71,10 +71,10 @@ func (r *MemoryRuleRepository) Delete(ctx context.Context, rule *rules.Rule) err
 }
 
 func (r *MemoryRuleRepository) GetAllRules(ctx context.Context) ([]*rules.Rule, error) {
-	rules_output := []*rules.Rule{}
+	rulesOutput := []*rules.Rule{}
 
 	for k := range r.storage {
-		rules_output = append(rules_output, &rules.Rule{
+		rulesOutput = append(rulesOutput, &rules.Rule{
 			ID:       k,
 			ActorID:  r.storage[k].actor,
 			ObjectID: r.storage[k].object,
@@ -82,5 +82,5 @@ func (r *MemoryRuleRepository) GetAllRules(ctx context.Context) ([]*rules.Rule, 
 		})
 	}
 
-	return rules_output, nil
+	return rulesOutput, nil
 }
